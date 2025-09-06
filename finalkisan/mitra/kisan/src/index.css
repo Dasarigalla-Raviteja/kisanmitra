@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KisanMitra Agricultural App - Android Mobile Optimized Design System */
+
+/* Android Safe Areas & Mobile Viewport */
+@supports (padding: max(0px)) {
+  .safe-area-top { padding-top: max(20px, env(safe-area-inset-top)); }
+  .safe-area-bottom { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
+  .safe-area-left { padding-left: max(0px, env(safe-area-inset-left)); }
+  .safe-area-right { padding-right: max(0px, env(safe-area-inset-right)); }
+}
+
+/* Prevent overscroll bounce for better native feel */
+html {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@layer base {
+  :root {
+    /* Agricultural Color Palette */
+    --primary-green: 158 64% 52%; /* #10B981 */
+    --secondary-green: 160 84% 39%; /* #059669 */
+    --accent-green: 157 69% 38%; /* #047857 */
+    --light-green: 155 100% 97%; /* #ECFDF5 */
+    --success-green: 142 71% 45%; /* #22C55E */
+    
+    /* Functional Colors */
+    --warning-orange: 38 92% 50%; /* #F59E0B */
+    --danger-red: 0 84% 60%; /* #EF4444 */
+    --info-blue: 217 91% 60%; /* #3B82F6 */
+    --light-blue: 214 100% 97%; /* #DBEAFE */
+    --purple: 262 83% 58%; /* #8B5CF6 */
+    --light-purple: 250 100% 97%; /* #EDE9FE */
+    
+    /* Neutral Colors */
+    --text-primary: 220 14% 96%; /* #F8FAFC */
+    --text-secondary: 215 25% 27%; /* #374151 */
+    --gray: 215 20% 65%; /* #9CA3AF */
+    --light-gray: 210 40% 96%; /* #F1F5F9 */
+    --cream: 43 74% 91%; /* #FAF7F0 */
+    --light-cream: 45 100% 97%; /* #FEF7ED */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-green)), hsl(var(--secondary-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-green)), hsl(var(--accent-green)));
+    --gradient-splash: linear-gradient(180deg, hsl(var(--primary-green)), hsl(var(--accent-green)));
+    --gradient-mesh: linear-gradient(135deg, hsl(var(--primary-green)), hsl(var(--secondary-green)), hsl(var(--success-green)));
+    --gradient-glass: linear-gradient(135deg, hsla(var(--primary-green), 0.1), hsla(var(--secondary-green), 0.1));
+    
+    /* Shadows */
+    --shadow-soft: 0 1px 3px 0 hsla(var(--text-secondary), 0.1), 0 1px 2px 0 hsla(var(--text-secondary), 0.06);
+    --shadow-medium: 0 4px 6px -1px hsla(var(--text-secondary), 0.1), 0 2px 4px -1px hsla(var(--text-secondary), 0.06);
+    --shadow-large: 0 10px 15px -3px hsla(var(--text-secondary), 0.1), 0 4px 6px -2px hsla(var(--text-secondary), 0.05);
+    --shadow-glow: 0 0 20px hsla(var(--primary-green), 0.3);
+    --shadow-inner: inset 0 2px 4px 0 hsla(var(--text-secondary), 0.06);
+    
+    /* Animations - Android Material Motion */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Spacing System */
+    --space-xs: 0.25rem; /* 4px */
+    --space-sm: 0.5rem;  /* 8px */
+    --space-md: 1rem;    /* 16px */
+    --space-lg: 1.5rem;  /* 24px */
+    --space-xl: 2rem;    /* 32px */
+    --space-2xl: 3rem;   /* 48px */
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem; /* 6px */
+    --radius-md: 0.75rem;  /* 12px */
+    --radius-lg: 1rem;     /* 16px */
+    --radius-xl: 1.25rem;  /* 20px */
+    --radius-full: 9999px;
+    
+    /* Standard design tokens */
+    --background: var(--text-primary);
+    --foreground: var(--text-secondary);
+    --card: var(--text-primary);
+    --card-foreground: var(--text-secondary);
+    --popover: var(--text-primary);
+    --popover-foreground: var(--text-secondary);
+    --primary: var(--primary-green);
+    --primary-foreground: var(--text-primary);
+    --secondary: var(--light-gray);
+    --secondary-foreground: var(--text-secondary);
+    --muted: var(--light-gray);
+    --muted-foreground: var(--gray);
+    --accent: var(--light-green);
+    --accent-foreground: var(--text-secondary);
+    --destructive: var(--danger-red);
+    --destructive-foreground: var(--text-primary);
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--primary-green);
+    --radius: var(--radius-md);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Agricultural App Components */
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/80 border border-white/20 shadow-lg;
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-splash {
+    background: var(--gradient-splash);
+  }
+  
+  .gradient-mesh {
+    background: var(--gradient-mesh);
+  }
+  
+  .gradient-glass {
+    background: var(--gradient-glass);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-glass {
+    @apply glass-card text-primary hover:bg-white/90 font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  /* Agricultural Theme Components */
+  .plant-card {
+    @apply bg-white rounded-2xl p-6 shadow-medium hover:shadow-large transition-all duration-300 border border-gray-100 hover:border-primary/20;
+  }
+  
+  .weather-card {
+    @apply bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-medium border border-blue-200;
+  }
+  
+  .tip-card {
+    @apply bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 shadow-medium border-l-4 border-yellow-400;
+  }
+  
+  .diagnosis-card {
+    @apply bg-white rounded-2xl p-6 shadow-large border border-gray-100;
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .grow-animation {
+    animation: grow 2s ease-out forwards;
+  }
+  
+  /* Android Mobile Optimizations */
+  .mobile-container {
+    @apply w-full max-w-full min-h-screen bg-background relative overflow-hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+  
+  .mobile-header {
+    @apply flex items-center justify-between p-4 bg-white/95 backdrop-blur-md shadow-soft sticky top-0 z-50;
+    padding-top: max(16px, env(safe-area-inset-top));
+  }
+  
+  .mobile-content {
+    @apply px-4 pb-24;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: max(96px, calc(env(safe-area-inset-bottom) + 96px));
+  }
+  
+  .mobile-bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-large z-50;
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+
+  /* Android Button Animations */
+  .android-ripple {
+    @apply relative overflow-hidden;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  .android-ripple:active {
+    transform: scale(0.96);
+  }
+
+  /* Android Card Style */
+  .android-card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  .android-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Touch Targets */
+  .touch-friendly {
+    min-height: 48px;
+    min-width: 48px;
+    @apply flex items-center justify-center;
+  }
+  
+  /* Agriculture Color Utilities */
+  .text-agri-primary { color: hsl(var(--primary-green)); }
+  .text-agri-secondary { color: hsl(var(--secondary-green)); }
+  .text-agri-accent { color: hsl(var(--accent-green)); }
+  .text-agri-success { color: hsl(var(--success-green)); }
+  .text-agri-warning { color: hsl(var(--warning-orange)); }
+  .text-agri-danger { color: hsl(var(--danger-red)); }
+  .text-agri-info { color: hsl(var(--info-blue)); }
+  .text-agri-purple { color: hsl(var(--purple)); }
+  
+  .bg-agri-primary { background-color: hsl(var(--primary-green)); }
+  .bg-agri-secondary { background-color: hsl(var(--secondary-green)); }
+  .bg-agri-accent { background-color: hsl(var(--accent-green)); }
+  .bg-agri-light { background-color: hsl(var(--light-green)); }
+  .bg-agri-success { background-color: hsl(var(--success-green)); }
+  .bg-agri-warning { background-color: hsl(var(--warning-orange)); }
+  .bg-agri-danger { background-color: hsl(var(--danger-red)); }
+  .bg-agri-info { background-color: hsl(var(--info-blue)); }
+  .bg-agri-light-blue { background-color: hsl(var(--light-blue)); }
+  .bg-agri-purple { background-color: hsl(var(--purple)); }
+  .bg-agri-light-purple { background-color: hsl(var(--light-purple)); }
+  .bg-agri-cream { background-color: hsl(var(--cream)); }
+  .bg-agri-light-cream { background-color: hsl(var(--light-cream)); }
+}
+
+@layer utilities {
+  /* Keyframe Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px hsla(var(--primary-green), 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px hsla(var(--primary-green), 0.8);
+    }
+  }
+  
+  @keyframes grow {
+    0% {
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes typing {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-typing {
+    animation: typing 2s steps(20, end);
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}

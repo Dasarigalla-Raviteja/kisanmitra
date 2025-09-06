@@ -1,0 +1,83 @@
+in advisory their is fertilizer guidance this is only display only saved fertilizer guidance by farmer only not all faertlizer  guidance  and one more conflicit is happening when saving fertilizer guidance it is coming my fertilizer guideance and down of it guidance i dont want like that how market prices when i click on that opening a separate page like that i need same for fertilizer guidance when i lcik on my fertilizer guidance should open my saved guidance one by one dont display how currently displaying and when farmer dont have any saved guidance then show like no saved guidance and keep go to ferlizer guidance and app like that think what u can keep 
+
+And on more in active treatments their is plus symbol just remove it no need
+
+
+
+
+Design a “Sell Produce” page for a farmer-focused mobile app.
+
+This page opens when the user clicks Sell Crops inside the Marketplace section of the Home page.
+
+Top Section
+
+A single horizontal bar with three elements:
+
+Tab: “Active” (default selected).
+
+Tab: “Sold”.
+
+On the right side → a label showing total earnings, e.g., “Earned: ₹12,500”.
+
+Only one tab can be selected at a time.
+
+Active tab → shows ongoing listings.
+
+Sold tab → shows completed listings with earnings.
+
+Listings Section
+
+Show listings as cards with clear details:
+
+Example (Active): “🥔 Potato – 100 kg – ₹12/kg – Transport: Yes”.
+
+Example (Sold): “🍅 Tomato – 80 kg – ₹25/kg – Transport: Yes – Earned: ₹2,000”.
+
+Use a clean layout, large fonts, minimal text, and crop emojis/icons for easy readability.
+
+Floating Action Button (FAB)
+
+A green circular “+” button fixed at the bottom-right corner.
+
+When tapped → open a Create New Listing form as a modal or slide-up panel.
+
+Create New Listing Form
+
+Keep it online, simple, and fast:
+
+Crop Name → dropdown or auto-filled when selecting from market list.
+
+Quantity (kg) → numeric input.
+
+Price per kg → auto-filled with live market price (editable).
+
+Toggle switch → “Need Transport? Yes / No”.
+
+Submit button → large green button.
+
+Market Prices Section (Optional, below listings)
+
+Title: “Select Crop to Sell”.
+
+Show a scrollable horizontal list or grid of crop cards.
+
+Each card displays crop name + average price, e.g.:
+
+“🍅 Tomato – ₹25/kg avg”
+
+“🌾 Wheat – ₹22/kg avg”
+
+Tapping a card → opens Create Listing form with crop details pre-filled.
+
+UI/UX Notes
+
+Color palette → Greens, earthy browns, and light backgrounds.
+
+Fonts → Large, bold, easy to read.
+
+Navigation → Minimal taps, intuitive flow.
+
+Audience → Small farmers with low digital literacy.
+
+Mobile-first → clean, responsive design.
+ so this page belong to mylistings card on home page okay so when i lcik on that it should open that

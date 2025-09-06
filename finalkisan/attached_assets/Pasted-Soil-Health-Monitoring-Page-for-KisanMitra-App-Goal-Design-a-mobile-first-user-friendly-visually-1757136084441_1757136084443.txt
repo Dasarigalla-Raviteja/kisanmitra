@@ -1,0 +1,90 @@
+Soil Health Monitoring Page for KisanMitra App
+
+Goal: Design a mobile-first, user-friendly, visually appealing page where farmers can view multiple soil tests, see key parameters, recommendations, and add new soil tests with a single tap.
+
+Page Layout and Design Requirements:
+1. Header
+
+Title: “Soil Health Monitoring”
+
+Top-right floating “+” button (green, circular, prominent) for adding a new soil test.
+
+Keep clean, minimal design with soft rural-friendly colors (greens, browns, light earth tones).
+
+2. Soil Test Cards (Vertical Scroll)
+
+Display all soil tests in latest-first order as scrollable cards.
+
+Each card includes:
+
+Date of test (top-left)
+
+Key parameters with color-coded indicators:
+
+pH (Red ⚠ Acidic / Green ✅ Neutral / Blue 🔵 Alkaline)
+
+Nitrogen (N) Low ⚠ / Medium ✅ / High ✅
+
+Phosphorus (P) Low ⚠ / Medium ✅ / High ✅
+
+Potassium (K) Low ⚠ / Medium ✅ / High ✅
+
+Moisture Low ⚠ / Adequate ✅ / High ✅
+
+Short recommendation snippet: e.g., “Apply Lime 200kg/acre”
+
+Buttons on card:
+
+View Details → expands to show full fertilizer/crop guidance
+
+Save Guidance → adds this recommendation to Advisory → My Soil Guidance
+
+Cards should have soft shadows, rounded corners, subtle gradients, and touch-friendly spacing.
+
+3. Expanded Recommendations
+
+When a card is tapped:
+
+Show detailed fertilizer guidance and recommended crops
+
+Include icons/emojis for crops and fertilizer types
+
+Option to save guidance
+
+Scrollable if content is long
+
+4. Add New Soil Test Form
+
+Triggered by floating “+” button
+
+Fields:
+
+Soil texture / color
+
+Moisture
+
+Crop history / fertilizer history
+
+Optional: IoT sensor data (pH, N, P, K, Moisture)
+
+Save button: Adds new soil card at top of the list
+
+Cancel button: Closes form without saving
+
+5. Advisory Integration
+
+Any guidance saved from a soil test automatically appears in Advisory → My Soil Guidance
+
+Cards in Advisory show soil test date + summary + recommendations
+
+6. UI/UX Features
+
+Mobile-first, touch-friendly design
+
+Color-coded cards for instant understanding
+
+Large fonts and clear icons for low literacy
+
+Soft, farmer-friendly earth tones with highlights in green/red/yellow
+
+Optional voice read-out of recommendations
